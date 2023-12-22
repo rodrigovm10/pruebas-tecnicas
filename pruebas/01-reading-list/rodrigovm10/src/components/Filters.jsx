@@ -9,11 +9,11 @@ export function Filters() {
 	const filterByGenreId = useId()
 
 	return (
-		<aside className='w-96 text-white'>
+		<aside className='w-96 ml-4 text-white flex flex-col gap-5'>
 			<section className='flex flex-col'>
 				<label
 					htmlFor={filterByPageId}
-					className='uppercase'
+					className='uppercase font-medium text-lg text-pastel-green-600'
 				>
 					Filtrar por páginas
 				</label>
@@ -25,30 +25,39 @@ export function Filters() {
 					max='1200'
 					onChange={changeQuantityOfPages}
 				/>
-				<span> Max pág. {filters.pages}</span>
+				<span className='opacity-60'> Max pág. {filters.pages}</span>
 			</section>
 			<section className='flex flex-col'>
-				<label htmlFor={filterByGenreId}>Seleccione un genero</label>
-				<div className='flex items-start flex-col'>
+				<label
+					htmlFor={filterByGenreId}
+					className='uppercase font-medium text-lg text-pastel-green-600'
+				>
+					Seleccione un género
+				</label>
+				<div className='flex flex-col items-start'>
 					<button
+						className='inline-block '
 						onClick={changeBookGenre}
 						value='Ciencia ficción'
 					>
 						Ciencia ficción
 					</button>
 					<button
+						className='inline-block '
 						onClick={changeBookGenre}
 						value='Fantasía'
 					>
 						Fantasía
 					</button>
 					<button
+						className='inline-block '
 						onClick={changeBookGenre}
 						value='Terror'
 					>
 						Terror
 					</button>
 					<button
+						className='inline-block '
 						onClick={changeBookGenre}
 						value='Zombies'
 					>
@@ -56,8 +65,8 @@ export function Filters() {
 					</button>
 				</div>
 			</section>
-			<section>
-				<p>Limpiar filtros</p>
+			<section className='flex gap-5'>
+				<p className='uppercase font-medium text-lg text-pastel-green-600'>Limpiar filtros</p>
 				<button onClick={cleanFilters}>
 					<Filter />
 				</button>

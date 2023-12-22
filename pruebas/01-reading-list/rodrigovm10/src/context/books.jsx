@@ -4,8 +4,11 @@ import { BOOKS } from '../constants/books'
 export const BooksContext = createContext()
 
 export function BooksProvider({ children }) {
-	const [list, setList] = useState([])
-	const [books, setBooks] = useState(BOOKS)
+	const booksInitialState = JSON.parse(window.localStorage.getItem('books')) || BOOKS
+	const listInitialState = JSON.parse(window.localStorage.getItem('list')) || []
+
+	const [list, setList] = useState(listInitialState)
+	const [books, setBooks] = useState(booksInitialState)
 
 	return (
 		<BooksContext.Provider value={{ list, setList, books, setBooks }}>

@@ -1,8 +1,20 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { BooksContext } from '../context/books'
 
 export function useBook() {
 	const { list, setList, books, setBooks } = useContext(BooksContext)
+
+	useEffect(() => {
+		updateListLocalStorage(list)
+		updateBooksLocalStorage(books)
+	}, [books, list])
+
+	const updateBooksLocalStorage = list => {
+		window.localStorage.setItem('books', JSON.stringify(list))
+	}
+	const updateListLocalStorage = books => {
+		window.localStorage.setItem('list', JSON.stringify(books))
+	}
 
 	const addBookToList = book => {
 		setList(prevState => [...prevState, book])
