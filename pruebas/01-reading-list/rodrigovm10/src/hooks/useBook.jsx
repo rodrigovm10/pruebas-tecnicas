@@ -12,5 +12,13 @@ export function useBook() {
 		return setList(prevState => prevState.filter(item => item.ISBN !== book.ISBN))
 	}
 
-	return { list, books, addBookToList, removeBookOfList }
+	const removeBookOfBooks = book => {
+		return setBooks(prevState => prevState.filter(item => item.book.ISBN !== book.ISBN))
+	}
+
+	const addBookToBooks = book => {
+		return setBooks(prevState => [...prevState, { book }])
+	}
+
+	return { list, books, addBookToList, removeBookOfList, removeBookOfBooks, addBookToBooks }
 }

@@ -2,10 +2,11 @@ import { useBook } from '../hooks/useBook'
 import { Heart } from './Icons'
 
 export function Book({ book }) {
-	const { addBookToList } = useBook()
+	const { addBookToList, removeBookOfBooks } = useBook()
 
 	const handleClickAddBookToList = book => {
 		addBookToList(book)
+		removeBookOfBooks(book)
 	}
 
 	return (
