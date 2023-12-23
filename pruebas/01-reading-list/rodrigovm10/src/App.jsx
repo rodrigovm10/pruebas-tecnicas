@@ -1,6 +1,6 @@
 import { Books } from './components/Books'
 import { Filters } from './components/Filters'
-// import { Footer } from './components/Footer'
+import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { useFilter } from './hooks/useFilter'
 import { useBook } from './hooks/useBook'
@@ -12,16 +12,18 @@ function App() {
 
 	return (
 		<>
-			<Header />
-			<main className='grid grid-cols-custom'>
-				<section className=''>
-					<Filters />
-				</section>
-				<section className=''>
-					{/* La clase 'flex-grow' hará que esta sección ocupe el espacio restante */}
-					<Books books={filteredBooks} />
-				</section>
-			</main>
+			<div className='flex flex-col min-h-screen'>
+				<Header />
+				<main className='flex-grow grid grid-cols-custom mb-10'>
+					<section className=''>
+						<Filters />
+					</section>
+					<section className=''>
+						<Books books={filteredBooks} />
+					</section>
+				</main>
+				<Footer />
+			</div>
 		</>
 	)
 }
