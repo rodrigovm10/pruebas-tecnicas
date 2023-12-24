@@ -8,9 +8,15 @@ export function useFilter() {
 		return books.filter(book => {
 			return (
 				book.book.pages >= filters.pages &&
-				(filters.genre === 'all' || book.book.genre === filters.genre)
+				(filters.genre === 'all' || book.book.genre === filters.genre) &&
+				(filters.search === '' ||
+					book.book.title.toLocaleLowerCase().includes(filters.search.toLocaleLowerCase()))
 			)
 		})
+	}
+
+	const changeBooksBySearch = e => {
+		return setFilters(prevState => ({ ...prevState, search: e.target.value }))
 	}
 
 	const changeQuantityOfPages = e => {
@@ -24,9 +30,17 @@ export function useFilter() {
 	const cleanFilters = () => {
 		setFilters({
 			pages: 0,
-			genre: 'all'
+			genre: 'all',
+			search: ''
 		})
 	}
 
-	return { filters, filterBooks, changeQuantityOfPages, changeBookGenre, cleanFilters }
+	return {
+		filters,
+		filterBooks,
+		changeQuantityOfPages,
+		changeBookGenre,
+		cleanFilters,
+		changeBooksBySearch
+	}
 }

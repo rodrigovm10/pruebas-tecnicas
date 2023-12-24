@@ -9,7 +9,7 @@ export function Filters() {
 	const filterByGenreId = useId()
 
 	return (
-		<aside className='w-96 ml-4 text-white flex flex-col gap-5'>
+		<aside className='w-96 ml-4 text-white flex lg:flex-col sm:flex-row gap-5'>
 			<section className='flex flex-col'>
 				<label
 					htmlFor={filterByPageId}
@@ -18,6 +18,7 @@ export function Filters() {
 					Filtrar por páginas
 				</label>
 				<input
+					className='w-52'
 					type='range'
 					name='pages'
 					id={filterByPageId}
@@ -34,7 +35,7 @@ export function Filters() {
 				>
 					Seleccione un género
 				</label>
-				<div className='flex flex-col items-start'>
+				<div className='flex items-start lg:flex-col sm:flex-row gap-2'>
 					<button
 						className='inline-block '
 						onClick={changeBookGenre}
@@ -65,7 +66,7 @@ export function Filters() {
 					</button>
 				</div>
 			</section>
-			<section className='flex gap-5'>
+			<section className='flex lg:flex-col sm:flex-row w-full gap-5'>
 				<p className='uppercase font-medium text-lg text-pastel-green-600'>Limpiar filtros</p>
 				<button onClick={cleanFilters}>
 					<Filter />

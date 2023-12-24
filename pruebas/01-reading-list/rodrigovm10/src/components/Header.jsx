@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { List } from './List'
 import { ListButton } from './ListButton'
+import { SearchBooks } from './SearchBooks'
 
 export function Header() {
 	const [isActive, setIsActive] = useState(false)
@@ -15,6 +16,7 @@ export function Header() {
 				<h3 className='text-3xl font-semibold text-white uppercase bg-pastel-green-700 p-2 rounded-lg'>
 					E-Books
 				</h3>
+				<SearchBooks />
 				{!isActive ? (
 					<ListButton handleClickIsActive={handleClickIsActive} />
 				) : (
