@@ -5,7 +5,4 @@ export const itemsRouter = Router()
 
 itemsRouter.get('/:id', ItemController.getById)
 
-itemsRouter.get('/', (req, res) => {
-	const query = req.query.q
-	res.send(`Query: ${query}`)
-})
+itemsRouter.get('/', ItemController.getAll)

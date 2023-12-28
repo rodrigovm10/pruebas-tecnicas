@@ -7,7 +7,7 @@ export const app = express()
 dotenv.config()
 
 app.use(json())
-// app.use(corsMiddleware())
+app.use(corsMiddleware())
 
 app.use('/api/items', itemsRouter)
 
