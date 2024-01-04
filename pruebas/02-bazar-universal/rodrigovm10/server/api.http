@@ -1,5 +1,0 @@
-### Get id
-http://localhost:3000/api/items/17
-
-### Get query
-http://localhost:3000/api/items?q=smartphones
