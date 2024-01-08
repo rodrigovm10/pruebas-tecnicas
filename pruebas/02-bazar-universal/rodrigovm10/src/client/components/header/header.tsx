@@ -9,7 +9,7 @@ export function Header() {
   const cart = useCartStore(state => state.cart)
 
   return (
-    <header className='flex flex-col items-center justify-center gap-y-8 mt-10'>
+    <header className='flex flex-col items-center justify-center gap-y-8 mt-8'>
       <section className='flex justify-between gap-x-7'>
         <h1 className='text-4xl font-bold'>Bazar Online</h1>
         <article className=''>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Onest } from 'next/font/google'
 import './globals.css'
+import { Toaster } from '@client/components/ui/sonner'
 
 const onest = Onest({ subsets: ['latin'] })
 
@@ -12,7 +13,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={onest.className}>{children}</body>
+      <body
+        className={`${onest.className} flex flex-col justify-center items-center gap-y-10 w-full max-w-[300px] md:max-w-[500px] lg:max-w-[800px] mx-auto my-0`}
+      >
+        {children}
+        <Toaster />
+      </body>
     </html>
   )
 }

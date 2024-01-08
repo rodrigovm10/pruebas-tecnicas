@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function ItemsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className='flex flex-col items-center justify-center gap-y-8 max-w-[400px] w-full mx-auto my-0'>
+    <>
       <Header />
       {children}
-    </div>
+    </>
   )
 }

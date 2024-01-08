@@ -3,9 +3,10 @@
 import { type ProductCardProps } from '@/types/types'
 import { StarIcon, TrashIcon } from '@client/components/icons'
 import { Badge } from '@client/components/ui/badge'
-import { SelectQuantity } from './select-quantity'
+import { useCartStore } from '@/client/store/cartStore'
 
 export function ProductCart({ product }: ProductCardProps) {
+  const { removeFromCart } = useCartStore(state => state)
   const { title, thumbnail, rating, price, brand, quantity } = product
 
   return (
@@ -31,16 +32,14 @@ export function ProductCart({ product }: ProductCardProps) {
         <span className='text-3xl font-bold text-gray-900 dark:text-white'>${price}</span>
       </main>
       <footer className='flex items-center justify-between px-5 pb-5'>
-        {/* <p className='opacity-80'>
-          <span className='font-medium'>Cantidad:</span> {quantity}
-        </p> */}
-        <SelectQuantity
-          quantity={quantity}
-          product={product}
-        />
-        <p>
+        <div className='flex '>
+          <p className=''>
+            <span className='font-bold'>Cantidad:</span> {quantity}
+          </p>
+        </div>
+        <button onClick={() => removeFromCart(product)}>
           <TrashIcon />
-        </p>
+        </button>
       </footer>
     </section>
   )

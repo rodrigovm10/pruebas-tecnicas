@@ -8,8 +8,8 @@ export default async function Cart() {
       <main>
         <Header />
         <ProductsList />
+        <Footer />
       </main>
-      <Footer />
     </>
   )
 }

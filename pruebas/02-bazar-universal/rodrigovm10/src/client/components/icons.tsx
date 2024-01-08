@@ -60,3 +60,48 @@ export const TrashIcon = () => (
     <path d='M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3' />
   </svg>
 )
+
+export const PlusIcon = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    className='icon icon-tabler icon-tabler-plus size-4'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    strokeWidth='2'
+    stroke='currentColor'
+    fill='none'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+  >
+    <path
+      stroke='none'
+      d='M0 0h24v24H0z'
+      fill='none'
+    />
+    <path d='M12 5l0 14' />
+    <path d='M5 12l14 0' />
+  </svg>
+)
+
+export const MinusIcon = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    className='icon icon-tabler icon-tabler-minus size-4'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    strokeWidth='2'
+    stroke='currentColor'
+    fill='none'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+  >
+    <path
+      stroke='none'
+      d='M0 0h24v24H0z'
+      fill='none'
+    />
+    <path d='M5 12l14 0' />
+  </svg>
+)

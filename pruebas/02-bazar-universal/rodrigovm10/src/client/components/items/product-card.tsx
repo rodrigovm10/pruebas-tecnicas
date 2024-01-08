@@ -1,5 +1,6 @@
 'use client'
 
+import { toastAddToCart } from '@/client/libs/alerts'
 import { useCartStore } from '@/client/store/cartStore'
 import { type ProductCardProps } from '@/types/types'
 import { StarIcon } from '@client/components/icons'
@@ -11,7 +12,7 @@ export function ProductCard({ product, isAlone }: ProductCardProps) {
   const router = useRouter()
   const addToCart = useCartStore(state => state.addToCart)
 
-  const { title, thumbnail, rating, price } = product
+  const { title, thumbnail, rating, price, brand, description } = product
 
   return (
     <>
@@ -40,8 +41,9 @@ export function ProductCard({ product, isAlone }: ProductCardProps) {
         </header>
         <main className='px-5 pb-5'>
           <h5 className='text-xl font-semibold tracking-tight text-gray-900 dark:text-white'>
-            {title}
+            {title} - {brand}
           </h5>
+          <p>{description}</p>
           <section className='flex items-center mt-2.5 mb-5 gap-x-3'>
             <StarIcon />
             <Badge>{rating}</Badge>
@@ -49,20 +51,26 @@ export function ProductCard({ product, isAlone }: ProductCardProps) {
           <section className='flex items-center justify-between'>
             <span className='text-3xl font-bold text-gray-900 dark:text-white'>${price}</span>
             {!isAlone && <Button>Comprar</Button>}
-            {isAlone && (
-              <section className='flex gap-x-3'>
-                <Button>Comprar</Button>
-                <Button
-                  onClick={() => addToCart(product)}
-                  variant='secondary'
-                >
-                  Añadir al carrito
-                </Button>
-              </section>
-            )}
           </section>
         </main>
       </section>
+      {isAlone && (
+        <footer>
+          <section className='flex flex-col mt-4 gap-y-2'>
+            <Button className='transition-all active:scale-90'>Comprar</Button>
+            <Button
+              onClick={() => {
+                addToCart(product)
+                toastAddToCart({ product })
+              }}
+              variant='secondary'
+              className='transition-all active:scale-90'
+            >
+              Añadir al carrito
+            </Button>
+          </section>
+        </footer>
+      )}
     </>
   )
 }
