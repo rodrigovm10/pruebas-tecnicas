@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import products from '@/server/products.json'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
     const id = params.id
