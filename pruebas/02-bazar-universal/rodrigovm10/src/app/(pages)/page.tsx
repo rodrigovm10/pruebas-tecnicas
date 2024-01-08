@@ -1,4 +1,4 @@
-import { Search } from '@/components/search'
+import { Search } from '@/client/components/home/search'
 
 export default function HomePage() {
   return (

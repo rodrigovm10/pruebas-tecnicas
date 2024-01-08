@@ -1,5 +1,5 @@
-import { ProductsList } from '@/components/products-list'
-import { fetchProducts } from '@/lib/data'
+import { ProductsList } from '@/client/components/items/products-list'
+import { fetchProducts } from '@/client/libs/data'
 import { Suspense } from 'react'
 
 export default async function ItemsPage({

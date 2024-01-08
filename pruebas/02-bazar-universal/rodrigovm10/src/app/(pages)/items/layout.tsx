@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Header } from '@/components/header'
+import { Header } from '@/client/components/header/header'
 
 export const metadata: Metadata = {
   title: 'Bazar Online',

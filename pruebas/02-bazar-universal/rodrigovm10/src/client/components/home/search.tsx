@@ -1,15 +1,13 @@
 'use client'
 
-import { searchProduct } from '@/lib/actions'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { useSearch } from '@/hooks/useSearch'
+import { Button } from '@client/components/ui/button'
+import { Input } from '@client/components/ui/input'
+import { useSearch } from '@client/hooks/useSearch'
+import { searchProduct } from '@/client/libs/actions'
 
-export function SearchHeader() {
-  const { searchParams, searchUrl, pathname } = useSearch()
-
+export function Search() {
+  const { searchParams, searchUrl } = useSearch()
   const handleSearch = (term: string) => {
-    if (pathname.includes('/items/')) return
     searchUrl(term)
   }
 

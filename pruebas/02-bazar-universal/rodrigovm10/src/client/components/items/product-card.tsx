@@ -1,13 +1,15 @@
 'use client'
 
+import { useCartStore } from '@/client/store/cartStore'
 import { type ProductCardProps } from '@/types/types'
-import { StarIcon } from '@/components/icons'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { StarIcon } from '@client/components/icons'
+import { Badge } from '@client/components/ui/badge'
+import { Button } from '@client/components/ui/button'
 import { useRouter } from 'next/navigation'
 
 export function ProductCard({ product, isAlone }: ProductCardProps) {
   const router = useRouter()
+  const addToCart = useCartStore(state => state.addToCart)
 
   const { title, thumbnail, rating, price } = product
 
@@ -16,7 +18,8 @@ export function ProductCard({ product, isAlone }: ProductCardProps) {
       {isAlone && (
         <section className='flex justify-center -mt-3 mb-2'>
           <Button
-            variant='ghost'
+            className='opacity-85'
+            variant='link'
             onClick={() => router.back()}
           >
             Volver a todos los productos
@@ -49,7 +52,12 @@ export function ProductCard({ product, isAlone }: ProductCardProps) {
             {isAlone && (
               <section className='flex gap-x-3'>
                 <Button>Comprar</Button>
-                <Button variant='secondary'>Añadir al carrito</Button>
+                <Button
+                  onClick={() => addToCart(product)}
+                  variant='secondary'
+                >
+                  Añadir al carrito
+                </Button>
               </section>
             )}
           </section>
